@@ -1,0 +1,125 @@
+/* General Styling */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #d0d3f9, #000);
+    color: white;
+  }
+  
+  .landing-page {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+  }
+  
+  .nav .sign-in {
+    background-color: #5b6fee;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+  
+  .nav .sign-in:hover {
+    background-color: #4a5ac4;
+  }
+  
+  /* Main Section */
+  .main-content {
+    margin-top: 100px;
+  }
+  
+  .main-content h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar {
+    display: inline-block;
+    background: white;
+    border-radius: 25px;
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-bar input {
+    border: none;
+    padding: 10px;
+    border-radius: 25px;
+    outline: none;
+    width: 300px;
+  }
+  
+  .search-icon {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .buttons {
+    margin-top: 20px;
+  }
+  
+  .buttons .btn-free-trial {
+    background-color: #2eaef1;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .buttons .btn-see-more {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+  
+  /* Abstract Section */
+  .abstract-section {
+    margin-top: 50px;
+  }
+  
+  .abstract-section h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .abstract-section p {
+    max-width: 400px;
+    margin: 0 auto;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  /* Scroll Indicator */
+  .scroll-indicator {
+    margin-top: 50px;
+    font-size: 30px;
+  }
+  

@@ -6,6 +6,7 @@ import {Verification} from "./pages/Verification"
 import {ResetPassword} from "./pages/ResetPassword"
 import { Dashboard } from "./pages/Dashboard";
 import { Landing } from "./pages/Landing";
+import { RecognizedGesture } from "./pages/recognized_gesture";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path='/forgotpassword' element={<ForgotPassword />} />
           <Route path='/verification' element={<Verification />} />
           <Route path='/reset-password' element={<ResetPassword />} />
+          <Route path='/recognized_gesture' element={<RecognizedGesture />} />
           <Route path='/' element={<Landing />} />
         </Routes>
       </BrowserRouter>

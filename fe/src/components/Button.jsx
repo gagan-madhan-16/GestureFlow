@@ -1,4 +1,4 @@
-export const Button = ({ label, onClick }) => {
+export const Button = ({ label, onClick , width}) => {
     return (
       <div style={styles.container}>
         <button onClick={onClick} type="button" style={styles.button}>

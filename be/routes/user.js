@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const router = Router();
 const { JWT_SECRET } = require("../config");
-const { User, Accounts } = require("../db");
+const { User } = require("../db");
 const jwt = require("jsonwebtoken");
 const zod = require("zod");
 const cookieParser=require('cookie-parser');
@@ -86,12 +86,6 @@ router.post("/signin", async function (req, res) {
   res.status(411).json({
     message: "Error while logging in",
   });
-});
-
-const updateBody = zod.object({
-  firstName: zod.string(),
-  lastName: zod.string(),
-  password: zod.string(),
 });
 
 function generateOTP() {
