@@ -29,8 +29,8 @@ export const Landing = () => {
       <div className="md:w-1/2 flex flex-col items-start h-screen pt-[300px]">
         <h1 className="text-6xl text-orange-500 font-bold mb-8">Welcome.</h1>
         <div className="space-x-4 z-10">
-          <button style={{ width: '200px', backgroundColor: 'blue', padding: '10px' }} onClick={() => navigate('/recognized_gesture')} type="button" >
-            <TypingAnimation text={"Recognized Gestures"} />
+          <button style={{ width: '200px', backgroundColor: 'blue', padding: '10px' }} onClick={() => navigate('/tutorial')} type="button" >
+            <TypingAnimation text={"Gesture Tutorial"} />
           </button>
         </div>
       </div>
