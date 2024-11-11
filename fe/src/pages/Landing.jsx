@@ -4,42 +4,53 @@ import { useNavigate } from 'react-router-dom';
 import TypingAnimation from "../components/TypingAnimation";
 
 export const Landing = () => {
-  
   const navigate = useNavigate();
 
   return (
-    <div className="bg-black text-white min-h-screen p-6">
+    <div className="bg-gradient-to-br from-gray-900 to-black text-white min-h-screen p-6 relative">
       <nav className="flex justify-between items-center mb-12">
         <div className="flex items-center">
-          <div className="w-6 h-6 bg-orange-400 rounded-full mr-2"></div>
-          <span className="font-bold text-orange-400">Gesture Flow</span>
+          <div className="w-8 h-8 bg-orange-400 rounded-full mr-2"></div>
+          <span className="font-bold text-2xl text-orange-400">Gesture Flow</span>
         </div>
         <div className="flex items-center space-x-4">
-        <div>
-          <div style = {{display: 'flex',gap: '10px'}}>
-            <Button label={"Sign Up"} onClick={() => navigate('/signup')} />
-            <Button label={"Sign In"} onClick={() => navigate('/signin')} />
-          </div>
-        </div>
+          <Button label="Sign Up" onClick={() => navigate('/signup')} className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded" />
+          <Button label="Sign In" onClick={() => navigate('/signin')} className="bg-transparent border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-4 py-2 rounded" />
         </div>
       </nav>
 
-      <main className="flex flex-col md:flex-row items-center justify-between">
-
-      <div className="md:w-1/2 flex flex-col items-start h-screen pt-[300px]">
-        <h1 className="text-6xl text-orange-500 font-bold mb-8">Welcome.</h1>
-        <div className="space-x-4 z-10">
-          <button style={{ width: '200px', backgroundColor: 'blue', padding: '10px' }} onClick={() => navigate('/recognized_gesture')} type="button" >
-            <TypingAnimation text={"Recognized Gestures"} />
+      <main className="flex flex-col lg:flex-row items-center justify-center min-h-[calc(100vh-120px)]">
+        <div className="lg:w-1/2 flex flex-col items-center lg:items-start justify-center space-y-8 mb-12 lg:mb-0">
+          <h1 className="text-5xl lg:text-7xl font-bold text-center lg:text-left text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600">
+            Welcome to Gesture Flow
+          </h1>
+          <p className="text-xl text-gray-300 text-center lg:text-left max-w-lg">
+            Experience the future of interaction with our innovative gesture recognition technology.
+          </p>
+          <button 
+            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+            onClick={() => navigate('/recognized_gesture')}
+          >
+            <TypingAnimation text="Recognized Gestures" />
           </button>
         </div>
-      </div>
 
-
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 to-purple-500 opacity-20 rounded-full blur-3xl"></div>
-        <div className="flex-item-right gap-10px"><img src="https://res.cloudinary.com/dvv1qhibw/image/upload/v1727754776/se/fwjbx1d6vdi4wzosml14.png" alt="intro" style={{height:'600px', marginBottom:'300px'}}/></div>
+        <div className="lg:w-1/2 flex justify-center items-center relative">
+          <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 to-purple-500 opacity-20 rounded-full blur-3xl"></div>
+          <img 
+            src="https://res.cloudinary.com/dvv1qhibw/image/upload/v1727754776/se/fwjbx1d6vdi4wzosml14.png" 
+            alt="Gesture Flow Demo" 
+            className="relative z-10 w-full h-auto max-w-2xl mx-auto rounded-lg shadow-2xl"
+          />
+        </div>
       </main>
-      <a href="http://127.0.0.1:5000/"><button style={{ width: '200px', backgroundColor: 'blue', padding: '10px' }} type="button" >Go to Smart Board</button></a>
+
+      <a 
+        href="http://127.0.0.1:8080/" 
+        className="absolute bottom-6 left-6 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+      >
+        Go to Smart Board
+      </a>
     </div>
   );
 };
