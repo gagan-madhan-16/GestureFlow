@@ -29,10 +29,16 @@ export const Landing = () => {
           </p>
           <button 
             className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-            onClick={() => navigate('/recognized_gesture')}
+            onClick={() => navigate('/tutorial')}
           >
             <TypingAnimation text="Recognized Gestures" />
           </button>
+      {/* <a 
+        href="/smartboard.html"
+        className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+      >
+        Go to Smart Board
+      </a> */}
         </div>
 
         <div className="lg:w-1/2 flex justify-center items-center relative">
@@ -45,12 +51,6 @@ export const Landing = () => {
         </div>
       </main>
 
-      <a 
-        href="http://127.0.0.1:8080/" 
-        className="absolute bottom-6 left-6 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-      >
-        Go to Smart Board
-      </a>
     </div>
   );
 };

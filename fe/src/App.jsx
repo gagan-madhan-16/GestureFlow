@@ -6,7 +6,7 @@ import {Verification} from "./pages/Verification"
 import {ResetPassword} from "./pages/ResetPassword"
 import { Dashboard } from "./pages/Dashboard";
 import { Landing } from "./pages/Landing";
-import Tutorial from "./pages/tutorial";
+import Tutorial from "./pages/Tutorial";
 
 function App() {
   return (

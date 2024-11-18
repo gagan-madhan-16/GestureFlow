@@ -62,7 +62,7 @@ export const Signin = () => {
         { username, password }
       );
       localStorage.setItem("token", response.data.token);
-      navigate("/dashboard");
+      window.location.href = "/smartboard.html";
     } catch (error) {
       console.error("Signin failed:", error);
       alert("Signin failed. Please check your credentials and try again.");

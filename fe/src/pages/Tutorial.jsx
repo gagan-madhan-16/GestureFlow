@@ -62,7 +62,7 @@ const Tutorial = () => {
           ))}
         </div>
 
-        <a href="http://127.0.0.1:5000/"><button style={{ width: '200px', backgroundColor: 'blue', padding: '10px', marginTop: '15px' }} type="button" >Go to Smart Board</button></a>
+        {/* <a href="/smartboard.html"><button style={{ width: '200px', backgroundColor: 'blue', padding: '10px', marginTop: '15px' }} type="button" >Go to Smart Board</button></a> */}
       </main>
 
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 to-purple-500 opacity-20 rounded-full blur-3xl"></div>
