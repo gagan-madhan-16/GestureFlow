@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { string } = require("zod");
 
-mongoose.connect("mongodb://localhost:27017/");
+mongoose.connect("mongodb://localhost:27017");
 
 const UserSchema = new mongoose.Schema({
   firstName: {

@@ -1,186 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gesture PDF Controller</title>
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
     <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to bottom right, #1a202c, #000000);
-            color: white;
-        }
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(to bottom right, #1a202c, #000000);
+        color: white;
+      }
 
-        #app-container {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+      #app-container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 1.5rem;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
 
-        .logo {
-            display: flex;
-            align-items: center;
-        }
+      .logo {
+        display: flex;
+        align-items: center;
+      }
 
-        .logo-circle {
-            width: 2rem;
-            height: 2rem;
-            background-color: #fb923c;
-            border-radius: 50%;
-            margin-right: 0.5rem;
-        }
+      .logo-circle {
+        width: 2rem;
+        height: 2rem;
+        background-color: #fb923c;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+      }
 
-        .logo-text {
-            font-weight: bold;
-            font-size: 1.5rem;
-            color: #fb923c;
-        }
+      .logo-text {
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: #fb923c;
+      }
 
-        .nav-buttons {
-            display: flex;
-            gap: 1rem;
-        }
+      .nav-buttons {
+        display: flex;
+        gap: 1rem;
+      }
 
-        .btn {
-            background-color: #f97316;
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 0.25rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+      .btn {
+        background-color: #f97316;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
 
-        .btn:hover {
-            background-color: #ea580c;
-        }
+      .btn:hover {
+        background-color: #ea580c;
+      }
 
-        main {
-            display: flex;
-            flex-grow: 1;
-            padding: 1.5rem;
-        }
+      main {
+        display: flex;
+        flex-grow: 1;
+        padding: 1.5rem;
+      }
 
-        #pdf-container {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            background-color: white;
-            border-radius: 0.5rem;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      #pdf-container {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
 
-        #canvas-container {
-            flex-grow: 1;
-            position: relative;
-            overflow: hidden;
-        }
+      #canvas-container {
+        flex-grow: 1;
+        position: relative;
+        overflow: hidden;
+      }
 
-        #pdf-canvas, #annotation-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
+      #pdf-canvas,
+      #annotation-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
 
-        #annotation-canvas {
-            pointer-events: none;
-        }
+      #annotation-canvas {
+        pointer-events: none;
+      }
 
-        #controls {
-            padding: 1rem;
-            background-color: rgb(26,33,46);
-            color: white;
-        }
+      #controls {
+        padding: 1rem;
+        background-color: rgb(26, 33, 46);
+        color: white;
+      }
 
-        #video-container {
-            width: 300px;
-            margin-left: 1.5rem;
-            background-color: rgba(0, 0, 0, 0.5);
-            border-radius: 0.5rem;
-            padding: 1rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+      #video-container {
+        width: 300px;
+        margin-left: 1.5rem;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 0.5rem;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
-        #webcam-video, #hand-canvas {
-            width: 100%;
-            border-radius: 0.5rem;
-            transform: scaleX(-1);
-            margin-bottom: 1rem;
-        }
+      #webcam-video,
+      #hand-canvas {
+        width: 100%;
+        border-radius: 0.5rem;
+        transform: scaleX(-1);
+        margin-bottom: 1rem;
+      }
 
-        #pointer {
-            position: absolute;
-            pointer-events: none;
-            z-index: 10;
-            width: 20px;
-            height: 20px;
-            background-color: rgba(255, 0, 0, 0.5);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-        }
+      #pointer {
+        position: absolute;
+        pointer-events: none;
+        z-index: 10;
+        width: 20px;
+        height: 20px;
+        background-color: rgba(255, 0, 0, 0.5);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+      }
 
-        .label {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 0.25rem;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
+      .label {
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+      }
 
-        #pdf-upload {
-            display: none;
-        }
+      #pdf-upload {
+        display: none;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div id="app-container">
-        <nav>
-            <div class="logo">
-                <div class="logo-circle"></div>
-                <span class="logo-text">Gesture Flow</span>
-            </div>
-            <div class="nav-buttons">
-                <a href="/"><button class="btn">Homepage</button></a>
-            </div>
-        </nav>
+      <nav>
+        <div class="logo">
+          <div class="logo-circle"></div>
+          <span class="logo-text">Gesture Flow</span>
+        </div>
+        <div class="nav-buttons">
+          <a href="http://localhost:5173/"
+            ><button class="btn">Homepage</button></a
+          >
+        </div>
+      </nav>
 
-        <main>
-            <div id="pdf-container">
-                <div id="canvas-container">
-                    <canvas id="pdf-canvas"></canvas>
-                    <canvas id="annotation-canvas"></canvas>
-                    <div id="pointer"></div>
-                </div>
-                <div id="controls">
-                    <div id="page-label" class="label">No PDF loaded</div>
-                    <div id="mode-label" class="label"></div>
-                    <label for="pdf-upload" class="btn">Upload PDF</label>
-                    <input type="file" id="pdf-upload" accept=".pdf" aria-label="Upload PDF" />
-                </div>
-            </div>
-            <div id="video-container">
-                <video id="webcam-video"></video>
-                <canvas id="hand-canvas"></canvas>
-                <div id="status-label" class="label" aria-live="polite"></div>
-            </div>
-        </main>
+      <main>
+        <div id="pdf-container">
+          <div id="canvas-container">
+            <canvas id="pdf-canvas"></canvas>
+            <canvas id="annotation-canvas"></canvas>
+            <div id="pointer"></div>
+          </div>
+          <div id="controls">
+            <div id="page-label" class="label">No PDF loaded</div>
+            <div id="mode-label" class="label"></div>
+            <label for="pdf-upload" class="btn">Upload PDF</label>
+            <input
+              type="file"
+              id="pdf-upload"
+              accept=".pdf"
+              aria-label="Upload PDF"
+            />
+          </div>
+        </div>
+        <div id="video-container">
+          <video id="webcam-video"></video>
+          <canvas id="hand-canvas"></canvas>
+          <div id="status-label" class="label" aria-live="polite"></div>
+        </div>
+      </main>
     </div>
 
     <script>
@@ -228,7 +238,7 @@
           this.penWidth = 2;
           this.eraserWidth = 50;
           this.gestureStartTime = null;
-          this.gestureHoldTime = 500;
+          this.gestureHoldTime = 800;
           this.gestureType = null;
           this.scale = 1;
           this.pointerHistory = [];
@@ -245,8 +255,8 @@
           this.hands.setOptions({
             maxNumHands: 1,
             modelComplexity: 1,
-            minDetectionConfidence: 0.5,
-            minTrackingConfidence: 0.5,
+            minDetectionConfidence: 0.7,
+            minTrackingConfidence: 0.7,
           });
 
           this.hands.onResults(this.handleHandResults.bind(this));
@@ -275,7 +285,10 @@
         handleHandResults(results) {
           this.clearHandCanvas();
 
-          if (results.multiHandLandmarks && results.multiHandLandmarks.length > 0) {
+          if (
+            results.multiHandLandmarks &&
+            results.multiHandLandmarks.length > 0
+          ) {
             results.multiHandLandmarks.forEach((landmarks, index) => {
               this.drawHandLandmarks({ multiHandLandmarks: [landmarks] });
 
@@ -482,7 +495,8 @@
               const fileReader = new FileReader();
               fileReader.onload = async (e) => {
                 const typedarray = new Uint8Array(e.target.result);
-                this.pdfDoc = await pdfjsLib.getDocument({ data: typedarray }).promise;
+                this.pdfDoc = await pdfjsLib.getDocument({ data: typedarray })
+                  .promise;
                 this.totalPages = this.pdfDoc.numPages;
                 this.currentPage = 1;
                 this.pdfLoaded = true;
@@ -531,8 +545,18 @@
             this.annotationCanvas.width = scaledViewport.width;
             this.annotationCanvas.height = scaledViewport.height;
 
-            this.ctx.clearRect(0, 0, this.pdfCanvas.width, this.pdfCanvas.height);
-            this.annotationCtx.clearRect(0, 0, this.annotationCanvas.width, this.annotationCanvas.height);
+            this.ctx.clearRect(
+              0,
+              0,
+              this.pdfCanvas.width,
+              this.pdfCanvas.height
+            );
+            this.annotationCtx.clearRect(
+              0,
+              0,
+              this.annotationCanvas.width,
+              this.annotationCanvas.height
+            );
 
             const renderContext = {
               canvasContext: this.ctx,

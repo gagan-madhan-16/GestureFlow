@@ -6,6 +6,8 @@ import TypingAnimation from "../components/TypingAnimation";
 export const Landing = () => {
   const navigate = useNavigate();
 
+  const token = localStorage.getItem("token");
+
   return (
     <div className="bg-gradient-to-br from-gray-900 to-black text-white min-h-screen p-6 relative">
       <nav className="flex justify-between items-center mb-12">
@@ -14,8 +16,27 @@ export const Landing = () => {
           <span className="font-bold text-2xl text-orange-400">Gesture Flow</span>
         </div>
         <div className="flex items-center space-x-4">
-          <Button label="Sign Up" onClick={() => navigate('/signup')} className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded" />
-          <Button label="Sign In" onClick={() => navigate('/signin')} className="bg-transparent border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-4 py-2 rounded" />
+          {token ? (
+            <button 
+            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+            onClick={() => window.location.href = "/smartboard.html"}
+          >
+            <TypingAnimation text="Smart Board" />
+          </button>
+          ) : (
+            <>
+              <Button 
+                label="Sign Up" 
+                onClick={() => navigate('/signup')} 
+                className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded"
+              />
+              <Button 
+                label="Sign In" 
+                onClick={() => navigate('/signin')} 
+                className="bg-transparent border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-4 py-2 rounded"
+              />
+            </>
+          )}
         </div>
       </nav>
 
@@ -33,12 +54,6 @@ export const Landing = () => {
           >
             <TypingAnimation text="Recognized Gestures" />
           </button>
-      {/* <a 
-        href="/smartboard.html"
-        className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-      >
-        Go to Smart Board
-      </a> */}
         </div>
 
         <div className="lg:w-1/2 flex justify-center items-center relative">
@@ -50,7 +65,6 @@ export const Landing = () => {
           />
         </div>
       </main>
-
     </div>
   );
 };

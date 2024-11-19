@@ -5,34 +5,25 @@ import GestureCard from './GestureCard';
 
 const gestures = [
   {
-    name: 'Zoom In',
-    description: 'Hold your first and second fingers upright to zoom in.',
-    imageUrl: '/placeholder.svg?height=200&width=200'
-  },
-  {
-    name: 'Zoom Out',
-    description: 'Pinch your fingers together to zoom out.',
-    imageUrl: '/placeholder.svg?height=200&width=200'
-  },
-  {
-    name: 'Volume Up',
-    description: 'Raise your hand with palm facing up to increase volume.',
-    imageUrl: '/placeholder.svg?height=200&width=200'
-  },
-  {
-    name: 'Volume Down',
-    description: 'Lower your hand with palm facing down to decrease volume.',
-    imageUrl: '/placeholder.svg?height=200&width=200'
-  },
-  {
-    name: 'Scribble',
-    description: 'Move your index finger in the air to scribble.',
-    imageUrl: '/placeholder.svg?height=200&width=200'
+    name: 'Draw',
+    description: 'Hold your first finger upright to Draw.',
+    imageUrl: '/images/draw.png'
   },
   {
     name: 'Erase',
-    description: 'Swipe your hand from right to left to erase.',
-    imageUrl: '/placeholder.svg?height=200&width=200'
+    description: 'Hold your first and second fingers upright to Erase.',
+    imageUrl: '/images/erase.png'
+  },
+  
+  {
+    name: 'Next Page',
+    description: 'Hold your first, second and third fingers upright to go to Next Page.',
+    imageUrl: '/images/next.png'
+  },
+  {
+    name: 'Previous Page',
+    description: 'Keep your fist closed to go to Previous Page.',
+    imageUrl: '/images/prev.png'
   }
 ];
 
@@ -62,7 +53,7 @@ const Tutorial = () => {
           ))}
         </div>
 
-        {/* <a href="/smartboard.html"><button style={{ width: '200px', backgroundColor: 'blue', padding: '10px', marginTop: '15px' }} type="button" >Go to Smart Board</button></a> */}
+        {/* <a href="http://127.0.0.1:5501/fe/public/smartboard.html"><button style={{ width: '200px', backgroundColor: 'blue', padding: '10px', marginTop: '15px' }} type="button" >Go to Smart Board</button></a> */}
       </main>
 
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 to-purple-500 opacity-20 rounded-full blur-3xl"></div>
