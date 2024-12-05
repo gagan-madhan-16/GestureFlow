@@ -7,23 +7,23 @@ const gestures = [
   {
     name: 'Draw',
     description: 'Hold your first finger upright to Draw.',
-    imageUrl: '/images/draw.png'
+    imageUrl: "https://res.cloudinary.com/dvv1qhibw/image/upload/v1733398573/ikdpmxihgbrxgdqjb0ns.png"
   },
   {
     name: 'Erase',
     description: 'Hold your first and second fingers upright to Erase.',
-    imageUrl: '/images/erase.png'
+    imageUrl: 'https://res.cloudinary.com/dvv1qhibw/image/upload/v1733398631/drshgoevtbjgzzktquxf.png'
   },
   
   {
     name: 'Next Page',
     description: 'Hold your first, second and third fingers upright to go to Next Page.',
-    imageUrl: '/images/next.png'
+    imageUrl: 'https://res.cloudinary.com/dvv1qhibw/image/upload/v1733398700/cnvhctx4v3fd720r1ctd.png'
   },
   {
     name: 'Previous Page',
     description: 'Keep your fist closed to go to Previous Page.',
-    imageUrl: '/images/prev.png'
+    imageUrl: 'https://res.cloudinary.com/dvv1qhibw/image/upload/v1733398714/flk206rujlpygsexb4ju.png'
   }
 ];
 
@@ -31,6 +31,7 @@ const Tutorial = () => {
   const navigate = useNavigate();
 
   return (
+    <div className="relative">
     <div className="bg-black text-white min-h-screen p-6">
       <nav className="flex justify-between items-center mb-12">
         <div className="flex items-center">
@@ -53,10 +54,10 @@ const Tutorial = () => {
           ))}
         </div>
 
-        {/* <a href="http://127.0.0.1:5501/fe/public/smartboard.html"><button style={{ width: '200px', backgroundColor: 'blue', padding: '10px', marginTop: '15px' }} type="button" >Go to Smart Board</button></a> */}
-      </main>
+        </main>
 
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 to-purple-500 opacity-20 rounded-full blur-3xl"></div>
+    </div>
     </div>
   );
 };

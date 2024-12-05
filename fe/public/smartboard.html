@@ -2,8 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gesture PDF Controller</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="https://res.cloudinary.com/dvv1qhibw/image/upload/v1731966490/xlwniz9mpc4gzf5vgmzw.webp" />
+    <title>Gesture Flow</title>
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
@@ -194,6 +195,22 @@
     </div>
 
     <script>
+      function checkLoginStatus() {
+    const userToken = localStorage.getItem('token');
+    if (!userToken) {
+      alert("You must be logged in to access this page.");
+      window.location.href = "/signin"; 
+      return false;
+    }
+    return true;
+  }
+
+      window.addEventListener("load", () => {
+        if (checkLoginStatus()) {
+          new WebPDFController(); 
+        }
+      });
+
       pdfjsLib.GlobalWorkerOptions.workerSrc =
         "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js";
 
@@ -571,10 +588,6 @@
           }
         }
       }
-
-      window.addEventListener("load", () => {
-        new WebPDFController();
-      });
     </script>
   </body>
 </html>

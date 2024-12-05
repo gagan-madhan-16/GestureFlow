@@ -99,11 +99,14 @@ export const Signin = () => {
           placeholder={"password"}
         />
       </div>
-      <div>
-        <button type="submit" style={buttonStyle} onClick={handleSubmit}>
-          Sign In
-        </button>
-      </div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', gap: '1rem' }}>
+      <button type="submit" style={buttonStyle} onClick={handleSubmit}>
+        Sign In
+      </button>
+      <button type="button" style={buttonStyle} onClick={() => navigate('/')}>
+        Back to Home
+      </button>
+    </div>
       <BottomWarning
         label={"Don't have an account?"}
         buttonText={"Sign up"}

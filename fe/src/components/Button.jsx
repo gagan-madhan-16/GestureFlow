@@ -1,7 +1,13 @@
 export const Button = ({ label, onClick , width}) => {
+
+  const buttonStyle = {
+    ...styles.button,
+    width: width ? width : "100px",
+  };
+
     return (
       <div style={styles.container}>
-        <button onClick={onClick} type="button" style={styles.button}>
+        <button onClick={onClick} type="button" style={buttonStyle}>
           {label}
         </button>
       </div>
@@ -14,7 +20,6 @@ export const Button = ({ label, onClick , width}) => {
       marginBottom: "0.5rem",
     },
     button: {
-      width: "100px",
       padding: "10px",
       backgroundColor: "#007bff",
       color: "#fff",

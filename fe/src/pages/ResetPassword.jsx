@@ -96,7 +96,7 @@ export const ResetPassword = () => {
           type="password"
           style={inputStyle}
           // value={otp}
-          maxLength="6"
+          minLength="6"
           onChange={(e) => {
             setPassword(e.target.value);
           }}
@@ -107,7 +107,7 @@ export const ResetPassword = () => {
           type="password"
           style={inputStyle}
           // value={otp}
-          maxLength="6"
+          minLength="6"
           onChange={(e) => {
             setPass2(e.target.value);
           }}
