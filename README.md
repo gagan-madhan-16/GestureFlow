@@ -4,6 +4,12 @@
 ## Overview
 A PDF reader that enables document interaction through hand gestures, providing intuitive controls for drawing, erasing, and navigation.
 
+## Live Demo
+
+- **Website:** [GestureFlow Website](https://sefe-gagan-madhan-16s-projects.vercel.app/)
+- **Backend API:** [GestureFlow Backend](https://sebe.onrender.com/api/v1/)
+
+
 ## Features
 - **Pen Tool:** Draw or highlight on PDFs using hand gestures.
 - **Eraser Tool:** Remove annotations with hand movements.
