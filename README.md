@@ -79,6 +79,13 @@ npm run dev
    
 - Enhance page navigation features.
 
+## Contributers
+
+- **[Swayam Shirbhate](https://github.com/Swayamo/)**[IIT2023016]
+- **[Pranav Singh](https://github.com/pranavsingh0111)**[IIT2023020] 
+- **[Gagan Madhan](https://github.com/gagan-madhan-16)**[IIT2023022] 
+- **[Shivansh Gupta](https://github.com/Shivg2901)**[IIT2023034] 
+
 ## Contributing
 
 - Fork the repository.
