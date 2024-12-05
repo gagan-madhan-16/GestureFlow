@@ -1,0 +1,96 @@
+
+# Hand Gesture-Controlled PDF Reader
+
+## Overview
+A PDF reader that enables document interaction through hand gestures, providing intuitive controls for drawing, erasing, and navigation.
+
+## Features
+- **Pen Tool:** Draw or highlight on PDFs using hand gestures.
+- **Eraser Tool:** Remove annotations with hand movements.
+- **Page Navigation:** Move between pages through gesture controls.
+- **User Authentication:** Secure access to PDF control features.
+
+## Technologies Used
+- **Frontend:** React.js, MUI
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB
+- **Authentication:** JWT
+- **Gesture Recognition:** Custom implementation
+
+## Prerequisites
+- Node.js (v14+)
+- npm (v6+)
+- MongoDB
+
+## Installation
+
+### 1. Clone Repository
+```bash
+git clone <repository-url>
+cd hand-gesture-pdf-reader
+```
+### 2. Install Dependencies
+
+#### Backend
+```bash
+cd be
+npm install
+```
+
+#### Frontend
+```bash
+cd fe
+npm install
+```
+
+### 3. Run Application
+
+#### Backend
+```bash
+cd be
+node index
+```
+
+#### Frontend
+```bash
+cd fe
+npm run dev
+```
+
+## Usage
+
+- **Sign up** or **log in**.
+   
+- **Upload PDF**.
+   
+- Use hand gestures to:
+   
+   - **Draw annotations**
+   
+   - **Erase markings**
+   
+   - **Navigate pages**
+
+## Future Improvements
+
+- Improve gesture recognition.
+   
+- Add multi-user annotations.
+   
+- Enhance page navigation features.
+
+## Contributing
+
+- Fork the repository.
+   
+- Create a feature branch.
+   
+- Commit changes.
+   
+- Push to the branch.
+   
+- Open a Pull Request.
+
+## License
+
+MIT License
