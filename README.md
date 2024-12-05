@@ -26,8 +26,8 @@ A PDF reader that enables document interaction through hand gestures, providing 
 
 ### 1. Clone Repository
 ```bash
-git clone <repository-url>
-cd hand-gesture-pdf-reader
+git clone https://github.com/gagan-madhan-16/GestureFlow
+cd GestureFlow
 ```
 ### 2. Install Dependencies
 
